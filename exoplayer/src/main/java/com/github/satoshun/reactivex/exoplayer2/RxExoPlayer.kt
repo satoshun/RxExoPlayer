@@ -9,13 +9,19 @@ import io.reactivex.Observable
 object RxExoPlayer {
   @NonNull
   @CheckResult
-  fun timelineChanged(player: Player): Observable<TimelineChangedEvent> {
-    return TimelineChangedObservable(player)
+  fun playbackParametersChanged(player: Player): Observable<PlaybackParametersChangedEvent> {
+    return PlaybackParametersChangedObservable(player)
   }
 
   @NonNull
   @CheckResult
-  fun playbackParametersChanged(player: Player): Observable<PlaybackParametersChangedEvent> {
-    return PlaybackParametersChangedObservable(player)
+  fun seekProcessed(player: Player): Observable<SeekProcessedEvent> {
+    return SeekProcessedObservable(player)
+  }
+
+  @NonNull
+  @CheckResult
+  fun timelineChanged(player: Player): Observable<TimelineChangedEvent> {
+    return TimelineChangedObservable(player)
   }
 }
