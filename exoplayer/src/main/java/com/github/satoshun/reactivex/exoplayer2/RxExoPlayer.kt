@@ -12,4 +12,10 @@ object RxExoPlayer {
   fun timelineChanged(player: Player): Observable<TimelineChangedEvent> {
     return TimelineChangedObservable(player)
   }
+
+  @NonNull
+  @CheckResult
+  fun playbackParametersChanged(player: Player): Observable<PlaybackParametersChangedEvent> {
+    return PlaybackParametersChangedObservable(player)
+  }
 }
