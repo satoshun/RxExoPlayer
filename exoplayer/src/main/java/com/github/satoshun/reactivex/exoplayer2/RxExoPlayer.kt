@@ -21,6 +21,12 @@ object RxExoPlayer {
 
   @NonNull
   @CheckResult
+  fun tracksChanged(player: Player): Observable<TracksChangedEvent> {
+    return TracksChangedObservable(player)
+  }
+
+  @NonNull
+  @CheckResult
   fun timelineChanged(player: Player): Observable<TimelineChangedEvent> {
     return TimelineChangedObservable(player)
   }

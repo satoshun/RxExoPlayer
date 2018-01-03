@@ -1,0 +1,22 @@
+package com.github.satoshun.reactivex.exoplayer2
+
+import com.google.android.exoplayer2.PlaybackParameters
+import com.google.android.exoplayer2.Timeline
+import com.google.android.exoplayer2.source.TrackGroupArray
+import com.google.android.exoplayer2.trackselection.TrackSelectionArray
+
+class PlaybackParametersChangedEvent(
+    val playbackParameters: PlaybackParameters
+)
+
+object SeekProcessedEvent
+
+class TracksChangedEvent(
+    val trackGroups: TrackGroupArray,
+    val trackSelections: TrackSelectionArray
+)
+
+class TimelineChangedEvent(
+    val timeline: Timeline,
+    val manifest: Any
+)
