@@ -11,7 +11,7 @@ internal interface EmptyEventListener : Player.EventListener {
   override fun onPlaybackParametersChanged(playbackParameters: PlaybackParameters) {}
   override fun onSeekProcessed() {}
   override fun onTracksChanged(trackGroups: TrackGroupArray, trackSelections: TrackSelectionArray) {}
-  override fun onPlayerError(error: ExoPlaybackException?) {}
+  override fun onPlayerError(error: ExoPlaybackException) {}
   override fun onLoadingChanged(isLoading: Boolean) {}
   override fun onPositionDiscontinuity(reason: Int) {}
   override fun onRepeatModeChanged(repeatMode: Int) {}

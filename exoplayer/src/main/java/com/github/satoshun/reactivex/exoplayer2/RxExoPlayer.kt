@@ -27,6 +27,12 @@ object RxExoPlayer {
 
   @NonNull
   @CheckResult
+  fun playerError(player: Player): Observable<PlayerErrorEvent> {
+    return PlayerErrorObservable(player)
+  }
+
+  @NonNull
+  @CheckResult
   fun timelineChanged(player: Player): Observable<TimelineChangedEvent> {
     return TimelineChangedObservable(player)
   }
