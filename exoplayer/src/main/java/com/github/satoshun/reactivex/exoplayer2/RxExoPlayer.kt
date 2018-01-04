@@ -60,4 +60,10 @@ object RxExoPlayer {
   fun timelineChanged(player: Player): Observable<TimelineChangedEvent> {
     return TimelineChangedObservable(player)
   }
+
+  @NonNull
+  @CheckResult
+  fun playerStateChanged(player: Player): Observable<PlayerStateChangedEvent> {
+    return PlayerStateChangedObservable(player)
+  }
 }

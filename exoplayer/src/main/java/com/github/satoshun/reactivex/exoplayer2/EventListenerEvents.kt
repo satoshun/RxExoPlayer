@@ -41,3 +41,8 @@ class TimelineChangedEvent(
     val timeline: Timeline,
     val manifest: Any
 )
+
+class PlayerStateChangedEvent(
+    val playWhenReady: Boolean,
+    val playbackState: Int
+)
