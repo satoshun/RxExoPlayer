@@ -33,6 +33,10 @@ class RepeatModeChangedEvent(
     val repeatMode: Int
 )
 
+class ShuffleModeEnabledChangedEvent(
+    val shuffleModeEnabled: Boolean
+)
+
 class TimelineChangedEvent(
     val timeline: Timeline,
     val manifest: Any

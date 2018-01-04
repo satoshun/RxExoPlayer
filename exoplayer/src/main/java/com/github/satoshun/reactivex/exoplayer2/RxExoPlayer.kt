@@ -51,6 +51,12 @@ object RxExoPlayer {
 
   @NonNull
   @CheckResult
+  fun shuffleModeEnabledChanged(player: Player): Observable<ShuffleModeEnabledChangedEvent> {
+    return ShuffleModeEnabledChangedObservable(player)
+  }
+
+  @NonNull
+  @CheckResult
   fun timelineChanged(player: Player): Observable<TimelineChangedEvent> {
     return TimelineChangedObservable(player)
   }
