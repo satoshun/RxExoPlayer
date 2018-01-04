@@ -39,6 +39,18 @@ object RxExoPlayer {
 
   @NonNull
   @CheckResult
+  fun positionDiscontinuity(player: Player): Observable<PositionDiscontinuityEvent> {
+    return PositionDiscontinuityObservable(player)
+  }
+
+  @NonNull
+  @CheckResult
+  fun repeatModeChanged(player: Player): Observable<RepeatModeChangedEvent> {
+    return RepeatModeChangedObservable(player)
+  }
+
+  @NonNull
+  @CheckResult
   fun timelineChanged(player: Player): Observable<TimelineChangedEvent> {
     return TimelineChangedObservable(player)
   }

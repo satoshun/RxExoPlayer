@@ -25,6 +25,14 @@ class LoadingChangedEvent(
     val isLoading: Boolean
 )
 
+class PositionDiscontinuityEvent(
+    val reason: Int
+)
+
+class RepeatModeChangedEvent(
+    val repeatMode: Int
+)
+
 class TimelineChangedEvent(
     val timeline: Timeline,
     val manifest: Any
