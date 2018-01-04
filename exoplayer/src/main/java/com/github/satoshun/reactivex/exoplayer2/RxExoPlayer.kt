@@ -33,6 +33,12 @@ object RxExoPlayer {
 
   @NonNull
   @CheckResult
+  fun loadingChanged(player: Player): Observable<LoadingChangedEvent> {
+    return LoadingChangedObservable(player)
+  }
+
+  @NonNull
+  @CheckResult
   fun timelineChanged(player: Player): Observable<TimelineChangedEvent> {
     return TimelineChangedObservable(player)
   }

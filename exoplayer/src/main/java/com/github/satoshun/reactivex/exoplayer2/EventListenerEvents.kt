@@ -21,6 +21,10 @@ class PlayerErrorEvent(
     val error: ExoPlaybackException
 )
 
+class LoadingChangedEvent(
+    val isLoading: Boolean
+)
+
 class TimelineChangedEvent(
     val timeline: Timeline,
     val manifest: Any
