@@ -9,6 +9,12 @@ import io.reactivex.Observable
 object RxExoPlayer {
   @NonNull
   @CheckResult
+  fun events(player: Player): Observable<out RxExoPlayerEvent> {
+    return RxExoPlayerEventsObservable(player)
+  }
+
+  @NonNull
+  @CheckResult
   fun playbackParametersChanged(player: Player): Observable<PlaybackParametersChangedEvent> {
     return PlaybackParametersChangedObservable(player)
   }
