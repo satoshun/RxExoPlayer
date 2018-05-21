@@ -2,11 +2,13 @@ buildscript {
   dependencies {
     classpath Libs.android_plugin
     classpath Libs.kotlin_plugin
+    classpath Libs.dokka_plugin
   }
 }
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'org.jetbrains.dokka-android'
 
 android {
   compileSdkVersion Vers.compile_sdk
@@ -27,12 +29,12 @@ dependencies {
   implementation Libs.rx_java
   implementation Libs.rx_android
 
-  implementation 'com.google.android.exoplayer:exoplayer-ui:2.6.0'
+  implementation Libs.exoplayer
 
-  testImplementation 'junit:junit:4.12'
+  testImplementation Libs.junit
 
-  androidTestImplementation 'com.android.support.test:runner:1.0.2'
-  androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+  androidTestImplementation Libs.support_test
+  androidTestImplementation Libs.espresso
 }
 
-apply from: rootProject.file('gradle/gradle-mvn-push-kotlin.gradle')
+apply from: rootProject.file('gradle/gradle-mvn-push.gradle')

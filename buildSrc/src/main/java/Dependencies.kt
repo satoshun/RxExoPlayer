@@ -17,6 +17,7 @@ object Libs {
 
   val rx_java = "io.reactivex.rxjava2:rxjava:2.1.8"
   val rx_android = "io.reactivex.rxjava2:rxandroid:2.0.1"
+  val exoplayer = "com.google.android.exoplayer:exoplayer-ui:2.6.0"
 
   val kotlin = "org.jetbrains.kotlin:kotlin-stdlib:${Vers.kotlin}"
   val coroutine = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Vers.couroutine}"
@@ -25,6 +26,7 @@ object Libs {
   val design = "com.android.support:design:${Vers.support_lib}"
   val support_v4_core = "com.android.support:support-core-ui:${Vers.support_lib}"
   val appcompat_v7 = "com.android.support:appcompat-v7:${Vers.support_lib}"
+  val constraint = "com.android.support.constraint:constraint-layout:1.0.2"
   val support_annotations = "com.android.support:support-annotations:${Vers.support_lib}"
   val recyclerview = "com.android.support:recyclerview-v7:${Vers.support_lib}"
   val constraint_layout = "com.android.support.constraint:constraint-layout:1.1.0"
