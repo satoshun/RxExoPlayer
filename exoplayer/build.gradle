@@ -1,11 +1,19 @@
+buildscript {
+  dependencies {
+    classpath Libs.android_plugin
+    classpath Libs.kotlin_plugin
+  }
+}
+
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-  compileSdkVersion 27
+  compileSdkVersion Vers.compile_sdk
+
   defaultConfig {
-    minSdkVersion 16
-    targetSdkVersion 27
+    minSdkVersion Vers.min_sdk
+    targetSdkVersion Vers.target_sdk
     versionCode 1
     versionName "1.0"
 
@@ -14,14 +22,15 @@ android {
 }
 
 dependencies {
-  implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+  implementation Libs.kotlin
+
+  implementation Libs.rx_java
+  implementation Libs.rx_android
 
   implementation 'com.google.android.exoplayer:exoplayer-ui:2.6.0'
-  implementation "io.reactivex.rxjava2:rxjava:2.1.8"
-  implementation "io.reactivex.rxjava2:rxandroid:2.0.1"
 
   testImplementation 'junit:junit:4.12'
 
-  androidTestImplementation 'com.android.support.test:runner:1.0.1'
-  androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+  androidTestImplementation 'com.android.support.test:runner:1.0.2'
+  androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
