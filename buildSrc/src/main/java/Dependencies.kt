@@ -7,7 +7,7 @@ object Vers {
   val kotlin = "1.2.41"
   val couroutine = "0.22.5"
   val support_lib = "27.1.1"
-  val ktlint = "0.21.0"
+  val ktlint = "0.23.1"
 }
 
 object Libs {
