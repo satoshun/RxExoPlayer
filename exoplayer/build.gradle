@@ -30,6 +30,7 @@ dependencies {
   implementation Libs.rx_android
 
   implementation Libs.exoplayer_core
+  implementation Libs.exoplayer_hls
 
   testImplementation Libs.junit
 

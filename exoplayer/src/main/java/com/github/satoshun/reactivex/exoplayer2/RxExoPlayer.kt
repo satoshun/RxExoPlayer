@@ -27,8 +27,7 @@ object RxExoPlayer {
   @NonNull
   @CheckResult
   fun playbackParametersChanged(player: Player): Observable<PlaybackParametersChangedEvent> {
-    return PlaybackParametersChangedObservable(
-        player)
+    return PlaybackParametersChangedObservable(player)
   }
 
   @NonNull
@@ -70,8 +69,7 @@ object RxExoPlayer {
   @NonNull
   @CheckResult
   fun shuffleModeEnabledChanged(player: Player): Observable<ShuffleModeEnabledChangedEvent> {
-    return ShuffleModeEnabledChangedObservable(
-        player)
+    return ShuffleModeEnabledChangedObservable(player)
   }
 
   @NonNull

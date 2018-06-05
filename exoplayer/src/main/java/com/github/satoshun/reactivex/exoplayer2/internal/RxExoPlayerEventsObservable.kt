@@ -45,7 +45,10 @@ internal class RxExoPlayerEventsObservable(
       observer.onNext(SeekProcessedEvent)
     }
 
-    override fun onTracksChanged(trackGroups: TrackGroupArray, trackSelections: TrackSelectionArray) {
+    override fun onTracksChanged(
+        trackGroups: TrackGroupArray,
+        trackSelections: TrackSelectionArray
+    ) {
       if (isDisposed) return
       observer.onNext(TracksChangedEvent(trackGroups, trackSelections))
     }
