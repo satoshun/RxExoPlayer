@@ -20,9 +20,9 @@ internal class TimelineChangedObservable(
       private val player: Player
   ) : MainThreadDisposable(),
       EmptyEventListener {
-    override fun onTimelineChanged(timeline: Timeline, manifest: Any) {
+    override fun onTimelineChanged(timeline: Timeline?, manifest: Any?, reason: Int) {
       if (isDisposed) return
-      observer.onNext(TimelineChangedEvent(timeline, manifest))
+      observer.onNext(TimelineChangedEvent(timeline, manifest, reason))
     }
 
     override fun onDispose() {

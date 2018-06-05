@@ -29,7 +29,7 @@ dependencies {
   implementation Libs.rx_java
   implementation Libs.rx_android
 
-  implementation Libs.exoplayer
+  implementation Libs.exoplayer_core
 
   testImplementation Libs.junit
 

@@ -40,8 +40,9 @@ class ShuffleModeEnabledChangedEvent(
 ) : RxExoPlayerEvent()
 
 class TimelineChangedEvent(
-    val timeline: Timeline,
-    val manifest: Any
+    val timeline: Timeline?,
+    val manifest: Any?,
+    val reason: Int
 ) : RxExoPlayerEvent()
 
 class PlayerStateChangedEvent(
