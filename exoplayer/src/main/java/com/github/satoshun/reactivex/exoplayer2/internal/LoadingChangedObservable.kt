@@ -1,5 +1,6 @@
-package com.github.satoshun.reactivex.exoplayer2
+package com.github.satoshun.reactivex.exoplayer2.internal
 
+import com.github.satoshun.reactivex.exoplayer2.LoadingChangedEvent
 import com.google.android.exoplayer2.Player
 import io.reactivex.Observable
 import io.reactivex.Observer

@@ -1,5 +1,16 @@
-package com.github.satoshun.reactivex.exoplayer2
+package com.github.satoshun.reactivex.exoplayer2.internal
 
+import com.github.satoshun.reactivex.exoplayer2.LoadingChangedEvent
+import com.github.satoshun.reactivex.exoplayer2.PlaybackParametersChangedEvent
+import com.github.satoshun.reactivex.exoplayer2.PlayerErrorEvent
+import com.github.satoshun.reactivex.exoplayer2.PlayerStateChangedEvent
+import com.github.satoshun.reactivex.exoplayer2.PositionDiscontinuityEvent
+import com.github.satoshun.reactivex.exoplayer2.RepeatModeChangedEvent
+import com.github.satoshun.reactivex.exoplayer2.RxExoPlayerEvent
+import com.github.satoshun.reactivex.exoplayer2.SeekProcessedEvent
+import com.github.satoshun.reactivex.exoplayer2.ShuffleModeEnabledChangedEvent
+import com.github.satoshun.reactivex.exoplayer2.TimelineChangedEvent
+import com.github.satoshun.reactivex.exoplayer2.TracksChangedEvent
 import com.google.android.exoplayer2.ExoPlaybackException
 import com.google.android.exoplayer2.PlaybackParameters
 import com.google.android.exoplayer2.Player

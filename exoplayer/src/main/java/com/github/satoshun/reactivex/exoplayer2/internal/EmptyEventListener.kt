@@ -1,4 +1,4 @@
-package com.github.satoshun.reactivex.exoplayer2
+package com.github.satoshun.reactivex.exoplayer2.internal
 
 import com.google.android.exoplayer2.ExoPlaybackException
 import com.google.android.exoplayer2.PlaybackParameters

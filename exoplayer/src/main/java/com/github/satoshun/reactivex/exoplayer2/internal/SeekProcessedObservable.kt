@@ -1,28 +1,28 @@
-package com.github.satoshun.reactivex.exoplayer2
+package com.github.satoshun.reactivex.exoplayer2.internal
 
+import com.github.satoshun.reactivex.exoplayer2.SeekProcessedEvent
 import com.google.android.exoplayer2.Player
 import io.reactivex.Observable
 import io.reactivex.Observer
 import io.reactivex.android.MainThreadDisposable
 
-internal class PositionDiscontinuityObservable(
+internal class SeekProcessedObservable(
     private val player: Player
-) : Observable<PositionDiscontinuityEvent>() {
-  override fun subscribeActual(observer: Observer<in PositionDiscontinuityEvent>) {
+) : Observable<SeekProcessedEvent>() {
+  override fun subscribeActual(observer: Observer<in SeekProcessedEvent>) {
     val listener = Listener(observer, player)
     observer.onSubscribe(listener)
     player.addListener(listener)
   }
 
   private class Listener(
-      private val observer: Observer<in PositionDiscontinuityEvent>,
+      private val observer: Observer<in SeekProcessedEvent>,
       private val player: Player
   ) : MainThreadDisposable(),
       EmptyEventListener {
-
-    override fun onPositionDiscontinuity(reason: Int) {
+    override fun onSeekProcessed() {
       if (isDisposed) return
-      observer.onNext(PositionDiscontinuityEvent(reason))
+      observer.onNext(SeekProcessedEvent)
     }
 
     override fun onDispose() {

@@ -1,5 +1,6 @@
-package com.github.satoshun.reactivex.exoplayer2
+package com.github.satoshun.reactivex.exoplayer2.internal
 
+import com.github.satoshun.reactivex.exoplayer2.PlaybackParametersChangedEvent
 import com.google.android.exoplayer2.PlaybackParameters
 import com.google.android.exoplayer2.Player
 import io.reactivex.Observable
@@ -22,7 +23,8 @@ internal class PlaybackParametersChangedObservable(
       EmptyEventListener {
     override fun onPlaybackParametersChanged(playbackParameters: PlaybackParameters) {
       if (isDisposed) return
-      observer.onNext(PlaybackParametersChangedEvent(playbackParameters))
+      observer.onNext(PlaybackParametersChangedEvent(
+          playbackParameters))
     }
 
     override fun onDispose() {

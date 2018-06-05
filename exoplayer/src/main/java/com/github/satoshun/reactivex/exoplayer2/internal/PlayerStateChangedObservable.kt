@@ -1,29 +1,27 @@
-package com.github.satoshun.reactivex.exoplayer2
+package com.github.satoshun.reactivex.exoplayer2.internal
 
-import com.google.android.exoplayer2.ExoPlaybackException
+import com.github.satoshun.reactivex.exoplayer2.PlayerStateChangedEvent
 import com.google.android.exoplayer2.Player
 import io.reactivex.Observable
 import io.reactivex.Observer
 import io.reactivex.android.MainThreadDisposable
-
-internal class PlayerErrorObservable(
+internal class PlayerStateChangedObservable(
     private val player: Player
-) : Observable<PlayerErrorEvent>() {
-  override fun subscribeActual(observer: Observer<in PlayerErrorEvent>) {
+) : Observable<PlayerStateChangedEvent>() {
+  override fun subscribeActual(observer: Observer<in PlayerStateChangedEvent>) {
     val listener = Listener(observer, player)
     observer.onSubscribe(listener)
     player.addListener(listener)
   }
 
   private class Listener(
-      private val observer: Observer<in PlayerErrorEvent>,
+      private val observer: Observer<in PlayerStateChangedEvent>,
       private val player: Player
   ) : MainThreadDisposable(),
       EmptyEventListener {
-
-    override fun onPlayerError(error: ExoPlaybackException) {
+    override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
       if (isDisposed) return
-      observer.onNext(PlayerErrorEvent(error))
+      observer.onNext(PlayerStateChangedEvent(playWhenReady, playbackState))
     }
 
     override fun onDispose() {

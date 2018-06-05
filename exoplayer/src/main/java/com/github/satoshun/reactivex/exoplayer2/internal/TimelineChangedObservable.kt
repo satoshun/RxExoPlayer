@@ -1,5 +1,6 @@
-package com.github.satoshun.reactivex.exoplayer2
+package com.github.satoshun.reactivex.exoplayer2.internal
 
+import com.github.satoshun.reactivex.exoplayer2.TimelineChangedEvent
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.Timeline
 import io.reactivex.Observable
