@@ -35,4 +35,8 @@ dependencies {
   implementation Libs.constraint
   implementation Libs.appcompat_v7
   implementation Libs.design
+
+  implementation Libs.exoplayer_ui
+  implementation Libs.exoplayer_core
+  implementation Libs.exoplayer_hls
 }
