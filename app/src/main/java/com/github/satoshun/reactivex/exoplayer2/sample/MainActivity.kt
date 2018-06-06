@@ -2,12 +2,11 @@ package com.github.satoshun.reactivex.exoplayer2.sample
 
 import android.net.Uri
 import android.os.Bundle
-import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import com.github.satoshun.reactivex.exoplayer2.hls.rxMediaSourceEvent
+import com.github.satoshun.reactivex.exoplayer2.hls.events
 import com.google.android.exoplayer2.DefaultLoadControl
 import com.google.android.exoplayer2.DefaultRenderersFactory
 import com.google.android.exoplayer2.ExoPlayerFactory
@@ -39,13 +38,11 @@ class MainActivity : AppCompatActivity() {
     playerView.player = player
 
     val mediaDataSourceFactory = DefaultDataSourceFactory(this, "test")
-    val (observable, listener) = rxMediaSourceEvent()
     val source = HlsMediaSource
         .Factory(mediaDataSourceFactory)
-        .createMediaSource(Uri.parse(HLS_SAMPLE), Handler(), listener)
-
+        .createMediaSource(Uri.parse(HLS_SAMPLE))
     disposables.add(
-        observable
+        source.events()
             .subscribe {
               Log.d("MediaSourceEvent", it.toString())
             }

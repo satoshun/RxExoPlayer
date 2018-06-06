@@ -18,9 +18,9 @@ object Libs {
   val rx_java = "io.reactivex.rxjava2:rxjava:2.1.8"
   val rx_android = "io.reactivex.rxjava2:rxandroid:2.0.1"
 
-  val exoplayer_core = "com.google.android.exoplayer:exoplayer-core:2.7.0"
-  val exoplayer_hls = "com.google.android.exoplayer:exoplayer-hls:2.7.0"
-  val exoplayer_ui = "com.google.android.exoplayer:exoplayer-ui:2.7.0"
+  val exoplayer_core = "com.google.android.exoplayer:exoplayer-core:2.8.1"
+  val exoplayer_hls = "com.google.android.exoplayer:exoplayer-hls:2.8.1"
+  val exoplayer_ui = "com.google.android.exoplayer:exoplayer-ui:2.8.1"
 
   val kotlin = "org.jetbrains.kotlin:kotlin-stdlib:${Vers.kotlin}"
 

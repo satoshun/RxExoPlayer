@@ -1,77 +1,64 @@
 package com.github.satoshun.reactivex.exoplayer2.hls
 
-import com.google.android.exoplayer2.Format
-import com.google.android.exoplayer2.upstream.DataSpec
+import com.google.android.exoplayer2.source.MediaSource
+import com.google.android.exoplayer2.source.MediaSourceEventListener
 import java.io.IOException
 
 sealed class MediaSourceEvent
 
 class LoadStartedEvent(
-    val dataSpec: DataSpec?,
-    val dataType: Int,
-    val trackType: Int,
-    val trackFormat: Format?,
-    val trackSelectionReason: Int,
-    val trackSelectionData: Any?,
-    val mediaStartTimeMs: Long,
-    val mediaEndTimeMs: Long,
-    val elapsedRealtimeMs: Long
+    val windowIndex: Int,
+    val mediaPeriodId: MediaSource.MediaPeriodId?,
+    val loadEventInfo: MediaSourceEventListener.LoadEventInfo?,
+    val mediaLoadData: MediaSourceEventListener.MediaLoadData?
 ) : MediaSourceEvent()
 
 class DownstreamFormatChangedEvent(
-    val trackType: Int,
-    val trackFormat: Format?,
-    val trackSelectionReason: Int,
-    val trackSelectionData: Any?,
-    val mediaTimeMs: Long
+    val windowIndex: Int,
+    val mediaPeriodId: MediaSource.MediaPeriodId?,
+    val mediaLoadData: MediaSourceEventListener.MediaLoadData?
 ) : MediaSourceEvent()
 
 class UpstreamDiscardedEvent(
-    val trackType: Int,
-    val mediaStartTimeMs: Long,
-    val mediaEndTimeMs: Long
+    val windowIndex: Int,
+    val mediaPeriodId: MediaSource.MediaPeriodId?,
+    val mediaLoadData: MediaSourceEventListener.MediaLoadData?
 ) : MediaSourceEvent()
 
 class LoadCompletedEvent(
-    val dataSpec: DataSpec?,
-    val dataType: Int,
-    val trackType: Int,
-    val trackFormat: Format?,
-    val trackSelectionReason: Int,
-    val trackSelectionData: Any?,
-    val mediaStartTimeMs: Long,
-    val mediaEndTimeMs: Long,
-    val elapsedRealtimeMs: Long,
-    val loadDurationMs: Long,
-    val bytesLoaded: Long
+    val windowIndex: Int,
+    val mediaPeriodId: MediaSource.MediaPeriodId?,
+    val loadEventInfo: MediaSourceEventListener.LoadEventInfo?,
+    val mediaLoadData: MediaSourceEventListener.MediaLoadData?
 ) : MediaSourceEvent()
 
 class LoadCanceledEvent(
-    val dataSpec: DataSpec?,
-    val dataType: Int,
-    val trackType: Int,
-    val trackFormat: Format?,
-    val trackSelectionReason: Int,
-    val trackSelectionData: Any?,
-    val mediaStartTimeMs: Long,
-    val mediaEndTimeMs: Long,
-    val elapsedRealtimeMs: Long,
-    val loadDurationMs: Long,
-    val bytesLoaded: Long
+    val windowIndex: Int,
+    val mediaPeriodId: MediaSource.MediaPeriodId?,
+    val loadEventInfo: MediaSourceEventListener.LoadEventInfo?,
+    val mediaLoadData: MediaSourceEventListener.MediaLoadData?
 ) : MediaSourceEvent()
 
 class LoadErrorEvent(
-    val dataSpec: DataSpec?,
-    val dataType: Int,
-    val trackType: Int,
-    val trackFormat: Format?,
-    val trackSelectionReason: Int,
-    val trackSelectionData: Any?,
-    val mediaStartTimeMs: Long,
-    val mediaEndTimeMs: Long,
-    val elapsedRealtimeMs: Long,
-    val loadDurationMs: Long,
-    val bytesLoaded: Long,
+    val windowIndex: Int,
+    val mediaPeriodId: MediaSource.MediaPeriodId?,
+    val loadEventInfo: MediaSourceEventListener.LoadEventInfo?,
+    val mediaLoadData: MediaSourceEventListener.MediaLoadData?,
     val error: IOException?,
     val wasCanceled: Boolean
+) : MediaSourceEvent()
+
+class MediaPeriodCreatedEvent(
+    val windowIndex: Int,
+    val mediaPeriodId: MediaSource.MediaPeriodId?
+) : MediaSourceEvent()
+
+class MediaPeriodReleasedEvent(
+    val windowIndex: Int,
+    val mediaPeriodId: MediaSource.MediaPeriodId?
+) : MediaSourceEvent()
+
+class ReadingStartedEvent(
+    val windowIndex: Int,
+    val mediaPeriodId: MediaSource.MediaPeriodId?
 ) : MediaSourceEvent()

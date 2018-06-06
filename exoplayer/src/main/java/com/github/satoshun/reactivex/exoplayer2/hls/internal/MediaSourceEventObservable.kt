@@ -1,132 +1,156 @@
 package com.github.satoshun.reactivex.exoplayer2.hls.internal
 
+import android.os.Handler
 import com.github.satoshun.reactivex.exoplayer2.hls.DownstreamFormatChangedEvent
 import com.github.satoshun.reactivex.exoplayer2.hls.LoadCanceledEvent
 import com.github.satoshun.reactivex.exoplayer2.hls.LoadCompletedEvent
 import com.github.satoshun.reactivex.exoplayer2.hls.LoadErrorEvent
 import com.github.satoshun.reactivex.exoplayer2.hls.LoadStartedEvent
+import com.github.satoshun.reactivex.exoplayer2.hls.MediaPeriodCreatedEvent
+import com.github.satoshun.reactivex.exoplayer2.hls.MediaPeriodReleasedEvent
 import com.github.satoshun.reactivex.exoplayer2.hls.MediaSourceEvent
+import com.github.satoshun.reactivex.exoplayer2.hls.ReadingStartedEvent
 import com.github.satoshun.reactivex.exoplayer2.hls.UpstreamDiscardedEvent
-import com.google.android.exoplayer2.Format
+import com.google.android.exoplayer2.source.MediaSource
 import com.google.android.exoplayer2.source.MediaSourceEventListener
-import com.google.android.exoplayer2.upstream.DataSpec
+import io.reactivex.Observable
 import io.reactivex.Observer
+import io.reactivex.android.MainThreadDisposable
 import java.io.IOException
 
 internal class MediaSourceEventObservable(
-    private val subject: Observer<MediaSourceEvent>
-) : MediaSourceEventListener {
-  override fun onLoadStarted(
-      dataSpec: DataSpec?,
-      dataType: Int,
-      trackType: Int,
-      trackFormat: Format?,
-      trackSelectionReason: Int,
-      trackSelectionData: Any?,
-      mediaStartTimeMs: Long,
-      mediaEndTimeMs: Long,
-      elapsedRealtimeMs: Long
-  ) {
-    subject.onNext(LoadStartedEvent(
-        dataSpec,
-        dataType,
-        trackType,
-        trackFormat,
-        trackSelectionReason,
-        trackSelectionData,
-        mediaStartTimeMs,
-        mediaEndTimeMs,
-        elapsedRealtimeMs
-    ))
+    private val mediaSource: MediaSource
+) : Observable<MediaSourceEvent>() {
+  override fun subscribeActual(observer: Observer<in MediaSourceEvent>) {
+    val listener = Listener(observer, mediaSource)
+    observer.onSubscribe(listener)
+    mediaSource.addEventListener(Handler(), listener)
   }
 
-  override fun onDownstreamFormatChanged(
-      trackType: Int, trackFormat: Format?,
-      trackSelectionReason: Int, trackSelectionData: Any?,
-      mediaTimeMs: Long
-  ) {
-    subject.onNext(DownstreamFormatChangedEvent(
-        trackType,
-        trackFormat,
-        trackSelectionReason,
-        trackSelectionData,
-        mediaTimeMs
-    ))
-  }
+  private class Listener(
+      private val observer: Observer<in MediaSourceEvent>,
+      private val mediaSource: MediaSource
+  ) : MainThreadDisposable(),
+      MediaSourceEventListener {
+    override fun onLoadStarted(
+        windowIndex: Int,
+        mediaPeriodId: MediaSource.MediaPeriodId?,
+        loadEventInfo: MediaSourceEventListener.LoadEventInfo?,
+        mediaLoadData: MediaSourceEventListener.MediaLoadData?
+    ) {
+      if (isDisposed) return
+      observer.onNext(LoadStartedEvent(
+          windowIndex,
+          mediaPeriodId,
+          loadEventInfo,
+          mediaLoadData
+      ))
+    }
 
-  override fun onUpstreamDiscarded(trackType: Int, mediaStartTimeMs: Long, mediaEndTimeMs: Long) {
-    subject.onNext(UpstreamDiscardedEvent(
-        trackType,
-        mediaStartTimeMs,
-        mediaEndTimeMs
-    ))
-  }
+    override fun onDownstreamFormatChanged(
+        windowIndex: Int,
+        mediaPeriodId: MediaSource.MediaPeriodId?,
+        mediaLoadData: MediaSourceEventListener.MediaLoadData?
+    ) {
+      if (isDisposed) return
+      observer.onNext(DownstreamFormatChangedEvent(
+          windowIndex,
+          mediaPeriodId,
+          mediaLoadData
+      ))
+    }
 
-  override fun onLoadCompleted(
-      dataSpec: DataSpec?, dataType: Int, trackType: Int,
-      trackFormat: Format?, trackSelectionReason: Int,
-      trackSelectionData: Any?, mediaStartTimeMs: Long,
-      mediaEndTimeMs: Long, elapsedRealtimeMs: Long, loadDurationMs: Long,
-      bytesLoaded: Long
-  ) {
-    subject.onNext(LoadCompletedEvent(
-        dataSpec,
-        dataType,
-        trackType,
-        trackFormat,
-        trackSelectionReason,
-        trackSelectionData,
-        mediaStartTimeMs,
-        mediaEndTimeMs,
-        elapsedRealtimeMs,
-        loadDurationMs,
-        bytesLoaded
-    ))
-  }
+    override fun onUpstreamDiscarded(
+        windowIndex: Int,
+        mediaPeriodId: MediaSource.MediaPeriodId?,
+        mediaLoadData: MediaSourceEventListener.MediaLoadData?
+    ) {
+      if (isDisposed) return
+      observer.onNext(UpstreamDiscardedEvent(
+          windowIndex,
+          mediaPeriodId,
+          mediaLoadData
+      ))
+    }
 
-  override fun onLoadCanceled(
-      dataSpec: DataSpec?, dataType: Int, trackType: Int,
-      trackFormat: Format?, trackSelectionReason: Int,
-      trackSelectionData: Any?, mediaStartTimeMs: Long,
-      mediaEndTimeMs: Long, elapsedRealtimeMs: Long, loadDurationMs: Long,
-      bytesLoaded: Long
-  ) {
-    subject.onNext(LoadCanceledEvent(
-        dataSpec,
-        dataType,
-        trackType,
-        trackFormat,
-        trackSelectionReason,
-        trackSelectionData,
-        mediaStartTimeMs,
-        mediaEndTimeMs,
-        elapsedRealtimeMs,
-        loadDurationMs,
-        bytesLoaded
-    ))
-  }
+    override fun onLoadCompleted(
+        windowIndex: Int,
+        mediaPeriodId: MediaSource.MediaPeriodId?,
+        loadEventInfo: MediaSourceEventListener.LoadEventInfo?,
+        mediaLoadData: MediaSourceEventListener.MediaLoadData?
+    ) {
+      if (isDisposed) return
+      observer.onNext(LoadCompletedEvent(
+          windowIndex,
+          mediaPeriodId,
+          loadEventInfo,
+          mediaLoadData
+      ))
+    }
 
-  override fun onLoadError(
-      dataSpec: DataSpec?, dataType: Int, trackType: Int, trackFormat: Format?,
-      trackSelectionReason: Int, trackSelectionData: Any?,
-      mediaStartTimeMs: Long, mediaEndTimeMs: Long, elapsedRealtimeMs: Long,
-      loadDurationMs: Long, bytesLoaded: Long, error: IOException?,
-      wasCanceled: Boolean
-  ) {
-    subject.onNext(LoadErrorEvent(
-        dataSpec,
-        dataType,
-        trackType,
-        trackFormat,
-        trackSelectionReason,
-        trackSelectionData,
-        mediaStartTimeMs,
-        mediaEndTimeMs,
-        elapsedRealtimeMs,
-        loadDurationMs,
-        bytesLoaded,
-        error,
-        wasCanceled
-    ))
+    override fun onLoadCanceled(
+        windowIndex: Int,
+        mediaPeriodId: MediaSource.MediaPeriodId?,
+        loadEventInfo: MediaSourceEventListener.LoadEventInfo?,
+        mediaLoadData: MediaSourceEventListener.MediaLoadData?
+    ) {
+      if (isDisposed) return
+      observer.onNext(LoadCanceledEvent(
+          windowIndex,
+          mediaPeriodId,
+          loadEventInfo,
+          mediaLoadData
+      ))
+    }
+
+    override fun onLoadError(
+        windowIndex: Int,
+        mediaPeriodId: MediaSource.MediaPeriodId?,
+        loadEventInfo: MediaSourceEventListener.LoadEventInfo?,
+        mediaLoadData: MediaSourceEventListener.MediaLoadData?,
+        error: IOException?,
+        wasCanceled: Boolean
+    ) {
+      if (isDisposed) return
+      observer.onNext(LoadErrorEvent(
+          windowIndex,
+          mediaPeriodId,
+          loadEventInfo,
+          mediaLoadData,
+          error,
+          wasCanceled
+      ))
+    }
+
+    override fun onMediaPeriodCreated(windowIndex: Int, mediaPeriodId: MediaSource.MediaPeriodId?) {
+      if (isDisposed) return
+      observer.onNext(MediaPeriodCreatedEvent(
+          windowIndex,
+          mediaPeriodId
+      ))
+    }
+
+    override fun onMediaPeriodReleased(
+        windowIndex: Int,
+        mediaPeriodId: MediaSource.MediaPeriodId?
+    ) {
+      if (isDisposed) return
+      observer.onNext(MediaPeriodReleasedEvent(
+          windowIndex,
+          mediaPeriodId
+      ))
+    }
+
+    override fun onReadingStarted(windowIndex: Int, mediaPeriodId: MediaSource.MediaPeriodId?) {
+      if (isDisposed) return
+      observer.onNext(ReadingStartedEvent(
+          windowIndex,
+          mediaPeriodId
+      ))
+    }
+
+    override fun onDispose() {
+      mediaSource.removeEventListener(this)
+    }
   }
 }
