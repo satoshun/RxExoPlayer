@@ -5,7 +5,7 @@ import com.google.android.exoplayer2.source.MediaSourceEventListener
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 
-fun rxMediaSourceEventListener(): Pair<Observable<MediaSourceEvent>, MediaSourceEventListener> {
+fun rxMediaSourceEvent(): Pair<Observable<MediaSourceEvent>, MediaSourceEventListener> {
   val subject = PublishSubject.create<MediaSourceEvent>()
   return subject.hide() to MediaSourceEventObservable(subject)
 }
