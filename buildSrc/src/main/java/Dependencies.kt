@@ -1,8 +1,8 @@
 object Vers {
   val compile_sdk = 27
-  val min_sdk = 15
+  val min_sdk = 16
   val target_sdk = 27
-  val agp = "3.1.2"
+  val agp = "3.1.3"
 
   val kotlin = "1.2.41"
   val couroutine = "0.22.5"
@@ -44,6 +44,11 @@ object Libs {
   val appcompat = "com.android.support:appcompat-v7:${Vers.support_lib}"
   val support_v4 = "com.android.support:support-v4:${Vers.support_lib}"
 
+  val robolectric = "org.robolectric:robolectric:4.0-alpha-2"
+  val android_test = "androidx.test:core:1.0.0-alpha3"
+  val android_truth = "androidx.test.ext:truth:1.0.0-alpha3"
+  val android_rules = "androidx.test:rules:1.1.0-alpha3"
+  val android_runner = "androidx.test:runner:1.1.0-alpha3"
   val truth = "com.google.truth:truth:0.39"
   val mockito_kotlin = "com.nhaarman:mockito-kotlin-kt1.1:1.5.0"
   val multidex = "com.android.support:multidex:1.0.3"

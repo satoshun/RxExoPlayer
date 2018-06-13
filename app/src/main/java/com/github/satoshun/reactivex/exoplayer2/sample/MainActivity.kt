@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
             }
     )
 
-    player.prepare(source, false, false)
+    player.prepare(source)
   }
 
   override fun onCreateOptionsMenu(menu: Menu): Boolean {
