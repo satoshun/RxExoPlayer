@@ -4,8 +4,14 @@ import com.google.android.exoplayer2.source.MediaSource
 import com.google.android.exoplayer2.source.MediaSourceEventListener
 import java.io.IOException
 
+/**
+ * A event on MediaSource
+ */
 sealed class MediaSourceEvent
 
+/**
+ * A event on MediaSource.onLoadStarted
+ */
 class LoadStartedEvent(
     val windowIndex: Int,
     val mediaPeriodId: MediaSource.MediaPeriodId?,
@@ -13,18 +19,27 @@ class LoadStartedEvent(
     val mediaLoadData: MediaSourceEventListener.MediaLoadData?
 ) : MediaSourceEvent()
 
+/**
+ * A event on MediaSource.onDownstreamFormatChanged
+ */
 class DownstreamFormatChangedEvent(
     val windowIndex: Int,
     val mediaPeriodId: MediaSource.MediaPeriodId?,
     val mediaLoadData: MediaSourceEventListener.MediaLoadData?
 ) : MediaSourceEvent()
 
+/**
+ * A event on MediaSource.onUpstreamDiscarded
+ */
 class UpstreamDiscardedEvent(
     val windowIndex: Int,
     val mediaPeriodId: MediaSource.MediaPeriodId?,
     val mediaLoadData: MediaSourceEventListener.MediaLoadData?
 ) : MediaSourceEvent()
 
+/**
+ * A event on MediaSource.onLoadCompleted
+ */
 class LoadCompletedEvent(
     val windowIndex: Int,
     val mediaPeriodId: MediaSource.MediaPeriodId?,
@@ -32,6 +47,9 @@ class LoadCompletedEvent(
     val mediaLoadData: MediaSourceEventListener.MediaLoadData?
 ) : MediaSourceEvent()
 
+/**
+ * A event on MediaSource.onLoadCanceled
+ */
 class LoadCanceledEvent(
     val windowIndex: Int,
     val mediaPeriodId: MediaSource.MediaPeriodId?,
@@ -39,6 +57,9 @@ class LoadCanceledEvent(
     val mediaLoadData: MediaSourceEventListener.MediaLoadData?
 ) : MediaSourceEvent()
 
+/**
+ * A event on MediaSource.onLoadError
+ */
 class LoadErrorEvent(
     val windowIndex: Int,
     val mediaPeriodId: MediaSource.MediaPeriodId?,
@@ -48,16 +69,25 @@ class LoadErrorEvent(
     val wasCanceled: Boolean
 ) : MediaSourceEvent()
 
+/**
+ * A event on MediaSource.onMediaPeriodCreated
+ */
 class MediaPeriodCreatedEvent(
     val windowIndex: Int,
     val mediaPeriodId: MediaSource.MediaPeriodId?
 ) : MediaSourceEvent()
 
+/**
+ * A event on MediaSource.onMediaPeriodReleased
+ */
 class MediaPeriodReleasedEvent(
     val windowIndex: Int,
     val mediaPeriodId: MediaSource.MediaPeriodId?
 ) : MediaSourceEvent()
 
+/**
+ * A event on MediaSource.onReadingStarted
+ */
 class ReadingStartedEvent(
     val windowIndex: Int,
     val mediaPeriodId: MediaSource.MediaPeriodId?
