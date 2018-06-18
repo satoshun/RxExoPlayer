@@ -30,7 +30,6 @@ dependencies {
   implementation Libs.kotlin
 
   api Libs.exoplayer_core
-  api Libs.exoplayer_hls
   api Libs.rx_java
   api Libs.rx_android
 
