@@ -19,12 +19,13 @@ import io.reactivex.android.MainThreadDisposable
 import java.io.IOException
 
 internal class MediaSourceEventObservable(
-    private val mediaSource: MediaSource
+    private val mediaSource: MediaSource,
+    private val handler: Handler
 ) : Observable<MediaSourceEvent>() {
   override fun subscribeActual(observer: Observer<in MediaSourceEvent>) {
     val listener = Listener(observer, mediaSource)
     observer.onSubscribe(listener)
-    mediaSource.addEventListener(Handler(), listener)
+    mediaSource.addEventListener(handler, listener)
   }
 
   private class Listener(
