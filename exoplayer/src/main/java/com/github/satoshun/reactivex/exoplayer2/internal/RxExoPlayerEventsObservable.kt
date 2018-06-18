@@ -6,7 +6,7 @@ import com.github.satoshun.reactivex.exoplayer2.PlayerErrorEvent
 import com.github.satoshun.reactivex.exoplayer2.PlayerStateChangedEvent
 import com.github.satoshun.reactivex.exoplayer2.PositionDiscontinuityEvent
 import com.github.satoshun.reactivex.exoplayer2.RepeatModeChangedEvent
-import com.github.satoshun.reactivex.exoplayer2.RxExoPlayerEvent
+import com.github.satoshun.reactivex.exoplayer2.PlayerEvent
 import com.github.satoshun.reactivex.exoplayer2.SeekProcessedEvent
 import com.github.satoshun.reactivex.exoplayer2.ShuffleModeEnabledChangedEvent
 import com.github.satoshun.reactivex.exoplayer2.TimelineChangedEvent
@@ -23,15 +23,15 @@ import io.reactivex.android.MainThreadDisposable
 
 internal class RxExoPlayerEventsObservable(
     private val player: Player
-) : Observable<RxExoPlayerEvent>() {
-  override fun subscribeActual(observer: Observer<in RxExoPlayerEvent>) {
+) : Observable<PlayerEvent>() {
+  override fun subscribeActual(observer: Observer<in PlayerEvent>) {
     val listener = Listener(observer, player)
     observer.onSubscribe(listener)
     player.addListener(listener)
   }
 
   private class Listener(
-      private val observer: Observer<in RxExoPlayerEvent>,
+      private val observer: Observer<in PlayerEvent>,
       private val player: Player
   ) : MainThreadDisposable(),
       Player.EventListener {
