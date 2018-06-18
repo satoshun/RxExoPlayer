@@ -1,16 +1,16 @@
 package com.github.satoshun.reactivex.exoplayer2.hls.internal
 
 import android.os.Handler
-import com.github.satoshun.reactivex.exoplayer2.hls.DownstreamFormatChangedEvent
-import com.github.satoshun.reactivex.exoplayer2.hls.LoadCanceledEvent
-import com.github.satoshun.reactivex.exoplayer2.hls.LoadCompletedEvent
-import com.github.satoshun.reactivex.exoplayer2.hls.LoadErrorEvent
-import com.github.satoshun.reactivex.exoplayer2.hls.LoadStartedEvent
-import com.github.satoshun.reactivex.exoplayer2.hls.MediaPeriodCreatedEvent
-import com.github.satoshun.reactivex.exoplayer2.hls.MediaPeriodReleasedEvent
-import com.github.satoshun.reactivex.exoplayer2.hls.MediaSourceEvent
-import com.github.satoshun.reactivex.exoplayer2.hls.ReadingStartedEvent
-import com.github.satoshun.reactivex.exoplayer2.hls.UpstreamDiscardedEvent
+import com.github.satoshun.reactivex.exoplayer2.source.DownstreamFormatChangedEvent
+import com.github.satoshun.reactivex.exoplayer2.source.LoadCanceledEvent
+import com.github.satoshun.reactivex.exoplayer2.source.LoadCompletedEvent
+import com.github.satoshun.reactivex.exoplayer2.source.LoadErrorEvent
+import com.github.satoshun.reactivex.exoplayer2.source.LoadStartedEvent
+import com.github.satoshun.reactivex.exoplayer2.source.MediaPeriodCreatedEvent
+import com.github.satoshun.reactivex.exoplayer2.source.MediaPeriodReleasedEvent
+import com.github.satoshun.reactivex.exoplayer2.source.MediaSourceEvent
+import com.github.satoshun.reactivex.exoplayer2.source.ReadingStartedEvent
+import com.github.satoshun.reactivex.exoplayer2.source.UpstreamDiscardedEvent
 import com.google.android.exoplayer2.source.MediaSource
 import com.google.android.exoplayer2.source.MediaSourceEventListener
 import io.reactivex.Observable
