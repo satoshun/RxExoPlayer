@@ -1,4 +1,4 @@
-package com.github.satoshun.reactivex.exoplayer2.hls.internal
+package com.github.satoshun.reactivex.exoplayer2.source.internal
 
 import android.os.Handler
 import com.github.satoshun.reactivex.exoplayer2.source.DownstreamFormatChangedEvent
