@@ -6,46 +6,46 @@ import com.google.android.exoplayer2.Timeline
 import com.google.android.exoplayer2.source.TrackGroupArray
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray
 
-sealed class RxExoPlayerEvent
+sealed class PlayerEvent
 
 class PlaybackParametersChangedEvent(
     val playbackParameters: PlaybackParameters
-) : RxExoPlayerEvent()
+) : PlayerEvent()
 
-object SeekProcessedEvent : RxExoPlayerEvent()
+object SeekProcessedEvent : PlayerEvent()
 
 class TracksChangedEvent(
     val trackGroups: TrackGroupArray,
     val trackSelections: TrackSelectionArray
-) : RxExoPlayerEvent()
+) : PlayerEvent()
 
 class PlayerErrorEvent(
     val error: ExoPlaybackException
-) : RxExoPlayerEvent()
+) : PlayerEvent()
 
 class LoadingChangedEvent(
     val isLoading: Boolean
-) : RxExoPlayerEvent()
+) : PlayerEvent()
 
 class PositionDiscontinuityEvent(
     val reason: Int
-) : RxExoPlayerEvent()
+) : PlayerEvent()
 
 class RepeatModeChangedEvent(
     val repeatMode: Int
-) : RxExoPlayerEvent()
+) : PlayerEvent()
 
 class ShuffleModeEnabledChangedEvent(
     val shuffleModeEnabled: Boolean
-) : RxExoPlayerEvent()
+) : PlayerEvent()
 
 class TimelineChangedEvent(
     val timeline: Timeline?,
     val manifest: Any?,
     val reason: Int
-) : RxExoPlayerEvent()
+) : PlayerEvent()
 
 class PlayerStateChangedEvent(
     val playWhenReady: Boolean,
     val playbackState: Int
-) : RxExoPlayerEvent()
+) : PlayerEvent()

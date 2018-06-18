@@ -23,8 +23,7 @@ internal class PlaybackParametersChangedObservable(
       EmptyEventListener {
     override fun onPlaybackParametersChanged(playbackParameters: PlaybackParameters) {
       if (isDisposed) return
-      observer.onNext(PlaybackParametersChangedEvent(
-          playbackParameters))
+      observer.onNext(PlaybackParametersChangedEvent(playbackParameters))
     }
 
     override fun onDispose() {
