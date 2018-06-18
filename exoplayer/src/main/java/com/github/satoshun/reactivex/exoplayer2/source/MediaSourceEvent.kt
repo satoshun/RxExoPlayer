@@ -1,4 +1,4 @@
-package com.github.satoshun.reactivex.exoplayer2.hls
+package com.github.satoshun.reactivex.exoplayer2.source
 
 import com.google.android.exoplayer2.source.MediaSource
 import com.google.android.exoplayer2.source.MediaSourceEventListener

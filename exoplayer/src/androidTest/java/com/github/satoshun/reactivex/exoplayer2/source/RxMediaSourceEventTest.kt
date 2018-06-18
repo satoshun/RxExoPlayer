@@ -1,4 +1,4 @@
-package com.github.satoshun.reactivex.exoplayer2.hls
+package com.github.satoshun.reactivex.exoplayer2.source
 
 import android.net.Uri
 import android.os.Looper
