@@ -16,7 +16,7 @@ This is a RxJava bindings for ExoPlayer.
 
 This library supports below types.
 
-- [Player.EventListener]https://google.github.io/ExoPlayer/doc/reference/com/google/android/exoplayer2/Player.EventListener.html)
+- [Player.EventListener](https://google.github.io/ExoPlayer/doc/reference/com/google/android/exoplayer2/Player.EventListener.html)
 - [MediaSource](http://google.github.io/ExoPlayer/doc/reference/com/google/android/exoplayer2/source/MediaSource)
 
 ## License
