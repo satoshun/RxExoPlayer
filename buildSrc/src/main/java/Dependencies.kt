@@ -8,6 +8,8 @@ object Vers {
   val couroutine = "0.22.5"
   val support_lib = "27.1.1"
   val ktlint = "0.23.1"
+
+  val exoplayer = "2.8.2"
 }
 
 object Libs {
@@ -15,12 +17,12 @@ object Libs {
   val kotlin_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Vers.kotlin}"
   val dokka_plugin = "org.jetbrains.dokka:dokka-android-gradle-plugin:0.9.16"
 
-  val rx_java = "io.reactivex.rxjava2:rxjava:2.1.8"
+  val rx_java = "io.reactivex.rxjava2:rxjava:2.1.16"
   val rx_android = "io.reactivex.rxjava2:rxandroid:2.0.1"
 
-  val exoplayer_core = "com.google.android.exoplayer:exoplayer-core:2.8.1"
-  val exoplayer_hls = "com.google.android.exoplayer:exoplayer-hls:2.8.1"
-  val exoplayer_ui = "com.google.android.exoplayer:exoplayer-ui:2.8.1"
+  val exoplayer_core = "com.google.android.exoplayer:exoplayer-core:${Vers.exoplayer}"
+  val exoplayer_hls = "com.google.android.exoplayer:exoplayer-hls:${Vers.exoplayer}"
+  val exoplayer_ui = "com.google.android.exoplayer:exoplayer-ui:${Vers.exoplayer}"
 
   val kotlin = "org.jetbrains.kotlin:kotlin-stdlib:${Vers.kotlin}"
 
