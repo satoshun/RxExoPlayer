@@ -7,7 +7,7 @@ import io.reactivex.Observer
 import io.reactivex.android.MainThreadDisposable
 
 internal class ShuffleModeEnabledChangedObservable(
-    private val player: Player
+  private val player: Player
 ) : Observable<ShuffleModeEnabledChangedEvent>() {
   override fun subscribeActual(observer: Observer<in ShuffleModeEnabledChangedEvent>) {
     val listener = Listener(observer, player)
@@ -16,8 +16,8 @@ internal class ShuffleModeEnabledChangedObservable(
   }
 
   private class Listener(
-      private val observer: Observer<in ShuffleModeEnabledChangedEvent>,
-      private val player: Player
+    private val observer: Observer<in ShuffleModeEnabledChangedEvent>,
+    private val player: Player
   ) : MainThreadDisposable(),
       EmptyEventListener {
 

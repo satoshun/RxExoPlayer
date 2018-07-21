@@ -7,7 +7,7 @@ import io.reactivex.Observer
 import io.reactivex.android.MainThreadDisposable
 
 internal class PositionDiscontinuityObservable(
-    private val player: Player
+  private val player: Player
 ) : Observable<PositionDiscontinuityEvent>() {
   override fun subscribeActual(observer: Observer<in PositionDiscontinuityEvent>) {
     val listener = Listener(observer, player)
@@ -16,8 +16,8 @@ internal class PositionDiscontinuityObservable(
   }
 
   private class Listener(
-      private val observer: Observer<in PositionDiscontinuityEvent>,
-      private val player: Player
+    private val observer: Observer<in PositionDiscontinuityEvent>,
+    private val player: Player
   ) : MainThreadDisposable(),
       EmptyEventListener {
 

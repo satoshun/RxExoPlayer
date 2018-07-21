@@ -8,7 +8,7 @@ import io.reactivex.Observer
 import io.reactivex.android.MainThreadDisposable
 
 internal class TimelineChangedObservable(
-    private val player: Player
+  private val player: Player
 ) : Observable<TimelineChangedEvent>() {
   override fun subscribeActual(observer: Observer<in TimelineChangedEvent>) {
     val listener = Listener(observer, player)
@@ -17,8 +17,8 @@ internal class TimelineChangedObservable(
   }
 
   private class Listener(
-      private val observer: Observer<in TimelineChangedEvent>,
-      private val player: Player
+    private val observer: Observer<in TimelineChangedEvent>,
+    private val player: Player
   ) : MainThreadDisposable(),
       EmptyEventListener {
     override fun onTimelineChanged(timeline: Timeline?, manifest: Any?, reason: Int) {

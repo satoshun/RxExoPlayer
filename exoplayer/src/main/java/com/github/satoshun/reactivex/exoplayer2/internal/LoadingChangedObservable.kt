@@ -7,7 +7,7 @@ import io.reactivex.Observer
 import io.reactivex.android.MainThreadDisposable
 
 internal class LoadingChangedObservable(
-    private val player: Player
+  private val player: Player
 ) : Observable<LoadingChangedEvent>() {
   override fun subscribeActual(observer: Observer<in LoadingChangedEvent>) {
     val listener = Listener(observer, player)
@@ -16,8 +16,8 @@ internal class LoadingChangedObservable(
   }
 
   private class Listener(
-      private val observer: Observer<in LoadingChangedEvent>,
-      private val player: Player
+    private val observer: Observer<in LoadingChangedEvent>,
+    private val player: Player
   ) : MainThreadDisposable(),
       EmptyEventListener {
 

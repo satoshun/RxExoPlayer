@@ -7,7 +7,7 @@ import io.reactivex.Observer
 import io.reactivex.android.MainThreadDisposable
 
 internal class RepeatModeChangedObservable(
-    private val player: Player
+  private val player: Player
 ) : Observable<RepeatModeChangedEvent>() {
   override fun subscribeActual(observer: Observer<in RepeatModeChangedEvent>) {
     val listener = Listener(observer, player)
@@ -16,10 +16,10 @@ internal class RepeatModeChangedObservable(
   }
 
   private class Listener(
-      private val observer: Observer<in RepeatModeChangedEvent>,
-      private val player: Player
+    private val observer: Observer<in RepeatModeChangedEvent>,
+    private val player: Player
   ) : MainThreadDisposable(),
-      EmptyEventListener {
+    EmptyEventListener {
 
     override fun onRepeatModeChanged(repeatMode: Int) {
       if (isDisposed) return

@@ -6,7 +6,7 @@ object Vers {
 
   val kotlin = "1.2.51"
   val support_lib = "27.1.1"
-  val ktlint = "0.23.1"
+  val ktlint = "0.24.0"
 
   val exoplayer = "2.8.2"
 }
@@ -14,6 +14,7 @@ object Vers {
 object Libs {
   val android_plugin = "com.android.tools.build:gradle:${Vers.agp}"
   val kotlin_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Vers.kotlin}"
+  val ktlint_plugin = "gradle.plugin.org.jlleitschuh.gradle:ktlint-gradle:4.1.0"
   val dokka_plugin = "org.jetbrains.dokka:dokka-android-gradle-plugin:0.9.16"
 
   val rx_java = "io.reactivex.rxjava2:rxjava:2.1.16"

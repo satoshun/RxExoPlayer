@@ -7,7 +7,7 @@ import io.reactivex.Observer
 import io.reactivex.android.MainThreadDisposable
 
 internal class SeekProcessedObservable(
-    private val player: Player
+  private val player: Player
 ) : Observable<SeekProcessedEvent>() {
   override fun subscribeActual(observer: Observer<in SeekProcessedEvent>) {
     val listener = Listener(observer, player)
@@ -16,8 +16,8 @@ internal class SeekProcessedObservable(
   }
 
   private class Listener(
-      private val observer: Observer<in SeekProcessedEvent>,
-      private val player: Player
+    private val observer: Observer<in SeekProcessedEvent>,
+    private val player: Player
   ) : MainThreadDisposable(),
       EmptyEventListener {
     override fun onSeekProcessed() {

@@ -5,8 +5,9 @@ import com.google.android.exoplayer2.Player
 import io.reactivex.Observable
 import io.reactivex.Observer
 import io.reactivex.android.MainThreadDisposable
+
 internal class PlayerStateChangedObservable(
-    private val player: Player
+  private val player: Player
 ) : Observable<PlayerStateChangedEvent>() {
   override fun subscribeActual(observer: Observer<in PlayerStateChangedEvent>) {
     val listener = Listener(observer, player)
@@ -15,8 +16,8 @@ internal class PlayerStateChangedObservable(
   }
 
   private class Listener(
-      private val observer: Observer<in PlayerStateChangedEvent>,
-      private val player: Player
+    private val observer: Observer<in PlayerStateChangedEvent>,
+    private val player: Player
   ) : MainThreadDisposable(),
       EmptyEventListener {
     override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {

@@ -9,7 +9,7 @@ import io.reactivex.Observer
 import io.reactivex.android.MainThreadDisposable
 
 internal class TracksChangedObservable(
-    private val player: Player
+  private val player: Player
 ) : Observable<TracksChangedEvent>() {
   override fun subscribeActual(observer: Observer<in TracksChangedEvent>) {
     val listener = Listener(observer, player)
@@ -18,8 +18,8 @@ internal class TracksChangedObservable(
   }
 
   private class Listener(
-      private val observer: Observer<in TracksChangedEvent>,
-      private val player: Player
+    private val observer: Observer<in TracksChangedEvent>,
+    private val player: Player
   ) : MainThreadDisposable(),
       EmptyEventListener {
 
