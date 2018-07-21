@@ -5,7 +5,6 @@ object Vers {
   val agp = "3.1.3"
 
   val kotlin = "1.2.51"
-  val couroutine = "0.22.5"
   val support_lib = "27.1.1"
   val ktlint = "0.23.1"
 
@@ -46,11 +45,10 @@ object Libs {
   val appcompat = "com.android.support:appcompat-v7:${Vers.support_lib}"
   val support_v4 = "com.android.support:support-v4:${Vers.support_lib}"
 
-  val robolectric = "org.robolectric:robolectric:4.0-alpha-2"
-  val android_test = "androidx.test:core:1.0.0-alpha3"
-  val android_truth = "androidx.test.ext:truth:1.0.0-alpha3"
-  val android_rules = "androidx.test:rules:1.1.0-alpha3"
-  val android_runner = "androidx.test:runner:1.1.0-alpha3"
+  val android_test = "androidx.test:core:1.0.0-alpha4"
+  val android_truth = "androidx.test.ext:truth:1.0.0-alpha4"
+  val android_rules = "androidx.test:rules:1.1.0-alpha4"
+  val android_runner = "androidx.test:runner:1.1.0-alpha4"
   val truth = "com.google.truth:truth:0.39"
   val mockito_kotlin = "com.nhaarman:mockito-kotlin-kt1.1:1.5.0"
   val multidex = "com.android.support:multidex:1.0.3"
