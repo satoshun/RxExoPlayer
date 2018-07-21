@@ -22,7 +22,7 @@ import io.reactivex.Observer
 import io.reactivex.android.MainThreadDisposable
 
 internal class PlayerEventsObservable(
-    private val player: Player
+  private val player: Player
 ) : Observable<PlayerEvent>() {
   override fun subscribeActual(observer: Observer<in PlayerEvent>) {
     val listener = Listener(observer, player)
@@ -31,8 +31,8 @@ internal class PlayerEventsObservable(
   }
 
   private class Listener(
-      private val observer: Observer<in PlayerEvent>,
-      private val player: Player
+    private val observer: Observer<in PlayerEvent>,
+    private val player: Player
   ) : MainThreadDisposable(),
       Player.EventListener {
     override fun onPlaybackParametersChanged(playbackParameters: PlaybackParameters) {
@@ -46,8 +46,8 @@ internal class PlayerEventsObservable(
     }
 
     override fun onTracksChanged(
-        trackGroups: TrackGroupArray,
-        trackSelections: TrackSelectionArray
+      trackGroups: TrackGroupArray,
+      trackSelections: TrackSelectionArray
     ) {
       if (isDisposed) return
       observer.onNext(TracksChangedEvent(trackGroups, trackSelections))

@@ -8,7 +8,7 @@ import io.reactivex.Observer
 import io.reactivex.android.MainThreadDisposable
 
 internal class PlayerErrorObservable(
-    private val player: Player
+  private val player: Player
 ) : Observable<PlayerErrorEvent>() {
   override fun subscribeActual(observer: Observer<in PlayerErrorEvent>) {
     val listener = Listener(observer, player)
@@ -17,8 +17,8 @@ internal class PlayerErrorObservable(
   }
 
   private class Listener(
-      private val observer: Observer<in PlayerErrorEvent>,
-      private val player: Player
+    private val observer: Observer<in PlayerErrorEvent>,
+    private val player: Player
   ) : MainThreadDisposable(),
       EmptyEventListener {
 

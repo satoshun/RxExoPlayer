@@ -19,8 +19,8 @@ import io.reactivex.android.MainThreadDisposable
 import java.io.IOException
 
 internal class MediaSourceEventObservable(
-    private val mediaSource: MediaSource,
-    private val handler: Handler
+  private val mediaSource: MediaSource,
+  private val handler: Handler
 ) : Observable<MediaSourceEvent>() {
   override fun subscribeActual(observer: Observer<in MediaSourceEvent>) {
     val listener = Listener(observer, mediaSource)
@@ -29,125 +29,143 @@ internal class MediaSourceEventObservable(
   }
 
   private class Listener(
-      private val observer: Observer<in MediaSourceEvent>,
-      private val mediaSource: MediaSource
+    private val observer: Observer<in MediaSourceEvent>,
+    private val mediaSource: MediaSource
   ) : MainThreadDisposable(),
-      MediaSourceEventListener {
+    MediaSourceEventListener {
     override fun onLoadStarted(
-        windowIndex: Int,
-        mediaPeriodId: MediaSource.MediaPeriodId?,
-        loadEventInfo: MediaSourceEventListener.LoadEventInfo?,
-        mediaLoadData: MediaSourceEventListener.MediaLoadData?
+      windowIndex: Int,
+      mediaPeriodId: MediaSource.MediaPeriodId?,
+      loadEventInfo: MediaSourceEventListener.LoadEventInfo?,
+      mediaLoadData: MediaSourceEventListener.MediaLoadData?
     ) {
       if (isDisposed) return
-      observer.onNext(LoadStartedEvent(
+      observer.onNext(
+        LoadStartedEvent(
           windowIndex,
           mediaPeriodId,
           loadEventInfo,
           mediaLoadData
-      ))
+        )
+      )
     }
 
     override fun onDownstreamFormatChanged(
-        windowIndex: Int,
-        mediaPeriodId: MediaSource.MediaPeriodId?,
-        mediaLoadData: MediaSourceEventListener.MediaLoadData?
+      windowIndex: Int,
+      mediaPeriodId: MediaSource.MediaPeriodId?,
+      mediaLoadData: MediaSourceEventListener.MediaLoadData?
     ) {
       if (isDisposed) return
-      observer.onNext(DownstreamFormatChangedEvent(
+      observer.onNext(
+        DownstreamFormatChangedEvent(
           windowIndex,
           mediaPeriodId,
           mediaLoadData
-      ))
+        )
+      )
     }
 
     override fun onUpstreamDiscarded(
-        windowIndex: Int,
-        mediaPeriodId: MediaSource.MediaPeriodId?,
-        mediaLoadData: MediaSourceEventListener.MediaLoadData?
+      windowIndex: Int,
+      mediaPeriodId: MediaSource.MediaPeriodId?,
+      mediaLoadData: MediaSourceEventListener.MediaLoadData?
     ) {
       if (isDisposed) return
-      observer.onNext(UpstreamDiscardedEvent(
+      observer.onNext(
+        UpstreamDiscardedEvent(
           windowIndex,
           mediaPeriodId,
           mediaLoadData
-      ))
+        )
+      )
     }
 
     override fun onLoadCompleted(
-        windowIndex: Int,
-        mediaPeriodId: MediaSource.MediaPeriodId?,
-        loadEventInfo: MediaSourceEventListener.LoadEventInfo?,
-        mediaLoadData: MediaSourceEventListener.MediaLoadData?
+      windowIndex: Int,
+      mediaPeriodId: MediaSource.MediaPeriodId?,
+      loadEventInfo: MediaSourceEventListener.LoadEventInfo?,
+      mediaLoadData: MediaSourceEventListener.MediaLoadData?
     ) {
       if (isDisposed) return
-      observer.onNext(LoadCompletedEvent(
+      observer.onNext(
+        LoadCompletedEvent(
           windowIndex,
           mediaPeriodId,
           loadEventInfo,
           mediaLoadData
-      ))
+        )
+      )
     }
 
     override fun onLoadCanceled(
-        windowIndex: Int,
-        mediaPeriodId: MediaSource.MediaPeriodId?,
-        loadEventInfo: MediaSourceEventListener.LoadEventInfo?,
-        mediaLoadData: MediaSourceEventListener.MediaLoadData?
+      windowIndex: Int,
+      mediaPeriodId: MediaSource.MediaPeriodId?,
+      loadEventInfo: MediaSourceEventListener.LoadEventInfo?,
+      mediaLoadData: MediaSourceEventListener.MediaLoadData?
     ) {
       if (isDisposed) return
-      observer.onNext(LoadCanceledEvent(
+      observer.onNext(
+        LoadCanceledEvent(
           windowIndex,
           mediaPeriodId,
           loadEventInfo,
           mediaLoadData
-      ))
+        )
+      )
     }
 
     override fun onLoadError(
-        windowIndex: Int,
-        mediaPeriodId: MediaSource.MediaPeriodId?,
-        loadEventInfo: MediaSourceEventListener.LoadEventInfo?,
-        mediaLoadData: MediaSourceEventListener.MediaLoadData?,
-        error: IOException?,
-        wasCanceled: Boolean
+      windowIndex: Int,
+      mediaPeriodId: MediaSource.MediaPeriodId?,
+      loadEventInfo: MediaSourceEventListener.LoadEventInfo?,
+      mediaLoadData: MediaSourceEventListener.MediaLoadData?,
+      error: IOException?,
+      wasCanceled: Boolean
     ) {
       if (isDisposed) return
-      observer.onNext(LoadErrorEvent(
+      observer.onNext(
+        LoadErrorEvent(
           windowIndex,
           mediaPeriodId,
           loadEventInfo,
           mediaLoadData,
           error,
           wasCanceled
-      ))
+        )
+      )
     }
 
     override fun onMediaPeriodCreated(windowIndex: Int, mediaPeriodId: MediaSource.MediaPeriodId?) {
       if (isDisposed) return
-      observer.onNext(MediaPeriodCreatedEvent(
+      observer.onNext(
+        MediaPeriodCreatedEvent(
           windowIndex,
           mediaPeriodId
-      ))
+        )
+      )
     }
 
     override fun onMediaPeriodReleased(
-        windowIndex: Int,
-        mediaPeriodId: MediaSource.MediaPeriodId?
+      windowIndex: Int,
+      mediaPeriodId: MediaSource.MediaPeriodId?
     ) {
       if (isDisposed) return
-      observer.onNext(MediaPeriodReleasedEvent(
+      observer.onNext(
+        MediaPeriodReleasedEvent(
           windowIndex,
           mediaPeriodId
-      ))
+        )
+      )
     }
 
     override fun onReadingStarted(windowIndex: Int, mediaPeriodId: MediaSource.MediaPeriodId?) {
       if (isDisposed) return
-      observer.onNext(ReadingStartedEvent(
+      observer.onNext(
+        ReadingStartedEvent(
           windowIndex,
           mediaPeriodId
-      ))
+        )
+      )
     }
 
     override fun onDispose() {
