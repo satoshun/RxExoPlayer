@@ -42,16 +42,16 @@ class RxMediaSourceEventTest {
   @UiThreadTest
   fun setUp() {
     exoPlayer = ExoPlayerFactory.newSimpleInstance(
-      DefaultRenderersFactory(activityTestRule.activity),
-      DefaultTrackSelector(AdaptiveTrackSelection.Factory(DefaultBandwidthMeter())),
-      DefaultLoadControl()
+        DefaultRenderersFactory(activityTestRule.activity),
+        DefaultTrackSelector(AdaptiveTrackSelection.Factory(DefaultBandwidthMeter())),
+        DefaultLoadControl()
     )
     exoPlayer.playWhenReady = true
 
     mediaSource = ExtractorMediaSource
-      .Factory(DefaultDataSourceFactory(activityTestRule.activity, "test"))
-      .setExtractorsFactory(DefaultExtractorsFactory())
-      .createMediaSource(Uri.parse("asset:///big_buck_bunny.mp4"))
+        .Factory(DefaultDataSourceFactory(activityTestRule.activity, "test"))
+        .setExtractorsFactory(DefaultExtractorsFactory())
+        .createMediaSource(Uri.parse("asset:///big_buck_bunny.mp4"))
   }
 
   @After
@@ -71,7 +71,7 @@ class RxMediaSourceEventTest {
     val test = events!!
 
     test.awaitCount(1)
-      .values()[0].isInstanceOf<MediaPeriodCreatedEvent>()
+        .values()[0].isInstanceOf<MediaPeriodCreatedEvent>()
   }
 
   @Test
@@ -86,7 +86,7 @@ class RxMediaSourceEventTest {
     val test = events!!
 
     test.awaitCount(1)
-      .values().containsIsInstanceOf<LoadStartedEvent>()
+        .values().containsIsInstanceOf<LoadStartedEvent>()
   }
 
   @Test
@@ -101,7 +101,7 @@ class RxMediaSourceEventTest {
     val test = events!!
 
     test.awaitCount(1)
-      .values().doesNotContainIsInstanceOf<LoadErrorEvent>()
+        .values().doesNotContainIsInstanceOf<LoadErrorEvent>()
   }
 }
 

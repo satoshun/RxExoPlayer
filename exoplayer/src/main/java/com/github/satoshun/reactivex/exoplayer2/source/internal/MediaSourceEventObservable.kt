@@ -41,12 +41,12 @@ internal class MediaSourceEventObservable(
     ) {
       if (isDisposed) return
       observer.onNext(
-        LoadStartedEvent(
-          windowIndex,
-          mediaPeriodId,
-          loadEventInfo,
-          mediaLoadData
-        )
+          LoadStartedEvent(
+              windowIndex,
+              mediaPeriodId,
+              loadEventInfo,
+              mediaLoadData
+          )
       )
     }
 
@@ -57,11 +57,11 @@ internal class MediaSourceEventObservable(
     ) {
       if (isDisposed) return
       observer.onNext(
-        DownstreamFormatChangedEvent(
-          windowIndex,
-          mediaPeriodId,
-          mediaLoadData
-        )
+          DownstreamFormatChangedEvent(
+              windowIndex,
+              mediaPeriodId,
+              mediaLoadData
+          )
       )
     }
 
@@ -72,11 +72,11 @@ internal class MediaSourceEventObservable(
     ) {
       if (isDisposed) return
       observer.onNext(
-        UpstreamDiscardedEvent(
-          windowIndex,
-          mediaPeriodId,
-          mediaLoadData
-        )
+          UpstreamDiscardedEvent(
+              windowIndex,
+              mediaPeriodId,
+              mediaLoadData
+          )
       )
     }
 
@@ -88,12 +88,12 @@ internal class MediaSourceEventObservable(
     ) {
       if (isDisposed) return
       observer.onNext(
-        LoadCompletedEvent(
-          windowIndex,
-          mediaPeriodId,
-          loadEventInfo,
-          mediaLoadData
-        )
+          LoadCompletedEvent(
+              windowIndex,
+              mediaPeriodId,
+              loadEventInfo,
+              mediaLoadData
+          )
       )
     }
 
@@ -105,12 +105,12 @@ internal class MediaSourceEventObservable(
     ) {
       if (isDisposed) return
       observer.onNext(
-        LoadCanceledEvent(
-          windowIndex,
-          mediaPeriodId,
-          loadEventInfo,
-          mediaLoadData
-        )
+          LoadCanceledEvent(
+              windowIndex,
+              mediaPeriodId,
+              loadEventInfo,
+              mediaLoadData
+          )
       )
     }
 
@@ -124,24 +124,24 @@ internal class MediaSourceEventObservable(
     ) {
       if (isDisposed) return
       observer.onNext(
-        LoadErrorEvent(
-          windowIndex,
-          mediaPeriodId,
-          loadEventInfo,
-          mediaLoadData,
-          error,
-          wasCanceled
-        )
+          LoadErrorEvent(
+              windowIndex,
+              mediaPeriodId,
+              loadEventInfo,
+              mediaLoadData,
+              error,
+              wasCanceled
+          )
       )
     }
 
     override fun onMediaPeriodCreated(windowIndex: Int, mediaPeriodId: MediaSource.MediaPeriodId?) {
       if (isDisposed) return
       observer.onNext(
-        MediaPeriodCreatedEvent(
-          windowIndex,
-          mediaPeriodId
-        )
+          MediaPeriodCreatedEvent(
+              windowIndex,
+              mediaPeriodId
+          )
       )
     }
 
@@ -151,20 +151,20 @@ internal class MediaSourceEventObservable(
     ) {
       if (isDisposed) return
       observer.onNext(
-        MediaPeriodReleasedEvent(
-          windowIndex,
-          mediaPeriodId
-        )
+          MediaPeriodReleasedEvent(
+              windowIndex,
+              mediaPeriodId
+          )
       )
     }
 
     override fun onReadingStarted(windowIndex: Int, mediaPeriodId: MediaSource.MediaPeriodId?) {
       if (isDisposed) return
       observer.onNext(
-        ReadingStartedEvent(
-          windowIndex,
-          mediaPeriodId
-        )
+          ReadingStartedEvent(
+              windowIndex,
+              mediaPeriodId
+          )
       )
     }
 
