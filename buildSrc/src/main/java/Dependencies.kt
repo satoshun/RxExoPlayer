@@ -17,8 +17,8 @@ object Libs {
   val ktlint_plugin = "gradle.plugin.org.jlleitschuh.gradle:ktlint-gradle:4.1.0"
   val dokka_plugin = "org.jetbrains.dokka:dokka-android-gradle-plugin:0.9.16"
 
-  val rx_java = "io.reactivex.rxjava2:rxjava:2.1.16"
-  val rx_android = "io.reactivex.rxjava2:rxandroid:2.0.1"
+  val rx_java = "io.reactivex.rxjava2:rxjava:2.2.0"
+  val rx_android = "io.reactivex.rxjava2:rxandroid:2.0.2"
 
   val exoplayer_core = "com.google.android.exoplayer:exoplayer-core:${Vers.exoplayer}"
   val exoplayer_hls = "com.google.android.exoplayer:exoplayer-hls:${Vers.exoplayer}"
@@ -33,10 +33,6 @@ object Libs {
   val support_annotations = "com.android.support:support-annotations:${Vers.support_lib}"
   val recyclerview = "com.android.support:recyclerview-v7:${Vers.support_lib}"
   val constraint_layout = "com.android.support.constraint:constraint-layout:1.1.0"
-
-  val viewmodel = "android.arch.lifecycle:viewmodel:1.1.1"
-  val livedata = "android.arch.lifecycle:livedata:1.1.1"
-  val gms = "com.google.android.gms:play-services-location:15.0.0"
 
   val junit = "junit:junit:4.12"
   val support_test = "com.android.support.test:runner:1.0.1"
