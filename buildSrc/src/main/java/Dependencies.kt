@@ -8,7 +8,7 @@ object Vers {
   val support_lib = "27.1.1"
   val ktlint = "0.24.0"
 
-  val exoplayer = "2.8.2"
+  val exoplayer = "2.8.4"
 }
 
 object Libs {
