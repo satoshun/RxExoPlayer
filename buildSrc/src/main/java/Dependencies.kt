@@ -1,10 +1,10 @@
 object Vers {
   val compile_sdk = 28
   val min_sdk = 16
-  val agp = "3.1.3"
   val target_sdk = 28
+  val agp = "3.1.4"
 
-  val kotlin = "1.2.51"
+  val kotlin = "1.2.61"
   val support_lib = "27.1.1"
   val ktlint = "0.24.0"
 
