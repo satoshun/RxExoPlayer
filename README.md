@@ -19,6 +19,24 @@ This library supports below types.
 - [Player.EventListener](https://google.github.io/ExoPlayer/doc/reference/com/google/android/exoplayer2/Player.EventListener.html)
 - [MediaSource](http://google.github.io/ExoPlayer/doc/reference/com/google/android/exoplayer2/source/MediaSource)
 
+### HLS sample
+
+MediaSource can be convert to Rx Observable Stream.
+
+```kotlin
+// create a MediaSource.
+val source = HlsMediaSource
+    .Factory(mediaDataSourceFactory)
+    .createMediaSource(Uri.parse(HLS_SAMPLE))
+// convert to Rx Observable.
+source.events()
+    .subscribe {
+      Log.d("MediaSourceEvent", it.toString())
+    }
+// set MediaSource to ExoPlayer.
+player.prepare(source)
+```
+
 ## License
 
 ```
