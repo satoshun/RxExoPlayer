@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import com.github.satoshun.reactivex.exoplayer2.events
 import com.github.satoshun.reactivex.exoplayer2.source.events
 import com.google.android.exoplayer2.DefaultLoadControl
 import com.google.android.exoplayer2.DefaultRenderersFactory
@@ -45,6 +46,12 @@ class MainActivity : AppCompatActivity() {
         source.events()
             .subscribe {
               Log.d("MediaSourceEvent", it.toString())
+            }
+    )
+    disposables.add(
+        player.events()
+            .subscribe {
+              Log.d("Player.EventListener", it.toString())
             }
     )
 
