@@ -36,17 +36,16 @@ android {
 
 dependencies {
   implementation Libs.kotlin
+  implementation Libs.android_annotation
 
   api Libs.exoplayer_core
   api Libs.rx_java
   api Libs.rx_android
 
   androidTestImplementation Libs.exoplayer_ui
-  androidTestImplementation Libs.appcompat_v7
+  androidTestImplementation Libs.appcompat
   androidTestImplementation Libs.junit
   androidTestImplementation Libs.truth
-  androidTestImplementation Libs.mockito_kotlin
-  androidTestImplementation Libs.android_test
   androidTestImplementation Libs.android_rules
   androidTestImplementation Libs.android_runner
 }

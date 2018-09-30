@@ -2,10 +2,8 @@ package com.github.satoshun.reactivex.exoplayer2.sample
 
 import android.net.Uri
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import com.github.satoshun.reactivex.exoplayer2.events
 import com.github.satoshun.reactivex.exoplayer2.source.events
 import com.google.android.exoplayer2.DefaultLoadControl
@@ -22,7 +20,6 @@ import io.reactivex.disposables.CompositeDisposable
 private const val HLS_SAMPLE = "https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_ts/master.m3u8"
 
 class MainActivity : AppCompatActivity() {
-
   private val disposables = CompositeDisposable()
 
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,18 +53,6 @@ class MainActivity : AppCompatActivity() {
     )
 
     player.prepare(source)
-  }
-
-  override fun onCreateOptionsMenu(menu: Menu): Boolean {
-    menuInflater.inflate(R.menu.menu_main, menu)
-    return true
-  }
-
-  override fun onOptionsItemSelected(item: MenuItem): Boolean {
-    return when (item.itemId) {
-      R.id.action_settings -> true
-      else -> super.onOptionsItemSelected(item)
-    }
   }
 
   override fun onDestroy() {

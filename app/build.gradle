@@ -33,9 +33,7 @@ dependencies {
   implementation Libs.kotlin
   implementation Libs.rx_java
   implementation Libs.rx_android
-  implementation Libs.constraint
-  implementation Libs.appcompat_v7
-  implementation Libs.design
+  implementation Libs.appcompat
 
   implementation Libs.exoplayer_ui
   implementation Libs.exoplayer_core

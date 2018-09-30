@@ -1,6 +1,6 @@
 package com.github.satoshun.reactivex.exoplayer2
 
-import android.support.annotation.CheckResult
+import androidx.annotation.CheckResult
 import com.github.satoshun.reactivex.exoplayer2.internal.LoadingChangedObservable
 import com.github.satoshun.reactivex.exoplayer2.internal.PlaybackParametersChangedObservable
 import com.github.satoshun.reactivex.exoplayer2.internal.PlayerErrorObservable

@@ -1,7 +1,7 @@
 package com.github.satoshun.reactivex.exoplayer2.source
 
 import android.os.Handler
-import android.support.annotation.CheckResult
+import androidx.annotation.CheckResult
 import com.github.satoshun.reactivex.exoplayer2.source.internal.MediaSourceEventObservable
 import com.google.android.exoplayer2.source.MediaSource
 import io.reactivex.Observable
