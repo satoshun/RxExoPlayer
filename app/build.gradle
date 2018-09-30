@@ -18,6 +18,10 @@ android {
     versionCode 1
     versionName "1.0"
   }
+  compileOptions {
+    sourceCompatibility 1.8
+    targetCompatibility 1.8
+  }
   buildTypes {
     release {
       minifyEnabled false
@@ -33,9 +37,7 @@ dependencies {
   implementation Libs.kotlin
   implementation Libs.rx_java
   implementation Libs.rx_android
-  implementation Libs.constraint
-  implementation Libs.appcompat_v7
-  implementation Libs.design
+  implementation Libs.appcompat
 
   implementation Libs.exoplayer_ui
   implementation Libs.exoplayer_core

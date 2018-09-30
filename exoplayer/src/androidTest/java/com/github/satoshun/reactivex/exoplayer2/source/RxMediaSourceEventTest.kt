@@ -31,9 +31,7 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class RxMediaSourceEventTest {
 
-  @Rule
-  @JvmField
-  val activityTestRule = ActivityTestRule(TestActivity::class.java)
+  @Rule @JvmField val activityTestRule = ActivityTestRule(TestActivity::class.java)
 
   private lateinit var exoPlayer: ExoPlayer
   private lateinit var mediaSource: MediaSource
@@ -42,6 +40,7 @@ class RxMediaSourceEventTest {
   @UiThreadTest
   fun setUp() {
     exoPlayer = ExoPlayerFactory.newSimpleInstance(
+        activityTestRule.activity,
         DefaultRenderersFactory(activityTestRule.activity),
         DefaultTrackSelector(AdaptiveTrackSelection.Factory(DefaultBandwidthMeter())),
         DefaultLoadControl()
