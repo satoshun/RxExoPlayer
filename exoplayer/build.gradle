@@ -29,6 +29,11 @@ android {
     testInstrumentationRunner "com.github.satoshun.reactivex.exoplayer2.MyTestRunner"
   }
 
+  compileOptions {
+    sourceCompatibility 1.8
+    targetCompatibility 1.8
+  }
+
   libraryVariants.all {
     it.generateBuildConfig.enabled = false
   }
@@ -42,7 +47,6 @@ dependencies {
   api Libs.rx_java
   api Libs.rx_android
 
-  androidTestImplementation Libs.exoplayer_ui
   androidTestImplementation Libs.appcompat
   androidTestImplementation Libs.junit
   androidTestImplementation Libs.truth

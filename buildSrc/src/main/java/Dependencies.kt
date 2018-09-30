@@ -7,7 +7,7 @@ object Vers {
   val kotlin = "1.2.71"
   val ktlint = "0.24.0"
 
-  val exoplayer = "2.8.4"
+  val exoplayer = "2.9.0"
 }
 
 object Libs {

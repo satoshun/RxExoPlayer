@@ -40,6 +40,7 @@ class RxMediaSourceEventTest {
   @UiThreadTest
   fun setUp() {
     exoPlayer = ExoPlayerFactory.newSimpleInstance(
+        activityTestRule.activity,
         DefaultRenderersFactory(activityTestRule.activity),
         DefaultTrackSelector(AdaptiveTrackSelection.Factory(DefaultBandwidthMeter())),
         DefaultLoadControl()

@@ -17,7 +17,7 @@ import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import io.reactivex.disposables.CompositeDisposable
 
-private const val HLS_SAMPLE = "https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_ts/master.m3u8"
+private const val HLS_SAMPLE = "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8"
 
 class MainActivity : AppCompatActivity() {
   private val disposables = CompositeDisposable()
@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
 
     val playerView = findViewById<PlayerView>(R.id.player)
     val player = ExoPlayerFactory.newSimpleInstance(
+        this,
         DefaultRenderersFactory(this),
         DefaultTrackSelector(AdaptiveTrackSelection.Factory(DefaultBandwidthMeter())),
         DefaultLoadControl()
